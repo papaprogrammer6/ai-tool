@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Embedded Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Optional loading screen */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loader">Loading...</div>
+
+<iframe
+    id="embedFrame"
+    src="https://use.ai/fr/chat?id=Z29vZ2xlfGNwY3xXVy1BTEwtRGVza3RvcC1TZWFyY2gtQ29tcGV0aXRvcnN8MjM0NDUwNDg2Njh8Y2hhdGdwdC5vcmd8NzkxOTExMjMxNjUxfHwxOTIxMTUyMzU5NTV8V1ctQUxMLUNvbXBldGl0b3JzLUJyb2FkfDc5MTkxMTIzMTY1MXx8fHx8fENqd0tDQWlBeWJmTEJoQWpFaXdBSTBtQkJqR19IQkRzRUFSekpHUkhhQ0ZhV0VSYTJCbWg5TGRNQjZoWE11dlJTZkhzcno4NVR6WDNreG9DeVk4UUF2RF9Cd0V8fHw&authMethod=google&paywall=true"
+    allowfullscreen
+    loading="lazy">
+</iframe>
+
+<script>
+    const iframe = document.getElementById('embedFrame');
+    const loader = document.getElementById('loader');
+
+    iframe.onload = () => {
+        loader.style.display = 'none';
+    };
+
+    // Ensure iframe always fits screen
+    window.addEventListener('resize', () => {
+        iframe.style.width = window.innerWidth + 'px';
+        iframe.style.height = window.innerHeight + 'px';
+    });
+</script>
+
+</body>
+</html>
